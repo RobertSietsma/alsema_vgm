@@ -126,6 +126,36 @@ export default function StepTemplateSelection({
           className="hidden"
         />
       </div>
+
+      <div className="rounded-xl bg-secondary p-5">
+        <div className="flex items-center gap-2">
+          <svg className="h-4 w-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+          </svg>
+          <span className="text-sm font-medium text-foreground">Beschikbare placeholders</span>
+        </div>
+        <p className="mt-1 text-xs text-muted">
+          Deze tags worden automatisch vervangen door de ingevulde formuliergegevens.
+        </p>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          {[
+            { tag: "{{ProjectName}}", desc: "Projectnaam" },
+            { tag: "{{Location}}", desc: "Locatie" },
+            { tag: "{{Contractor}}", desc: "Aannemer" },
+            { tag: "{{ProjectManager}}", desc: "Projectleider" },
+            { tag: "{{Client}}", desc: "Opdrachtgever" },
+            { tag: "{{ProjectDescription}}", desc: "Projectomschrijving" },
+            { tag: "{{TypeOfWork}}", desc: "Type werkzaamheden" },
+            { tag: "{{Discipline}}", desc: "Discipline(s)" },
+            { tag: "{{SubcontractorPresent}}", desc: "Onderaannemer aanwezig (Ja/Nee)" },
+          ].map(({ tag, desc }) => (
+            <div key={tag} className="flex items-center gap-2">
+              <code className="font-mono text-xs bg-white rounded px-1.5 py-0.5 text-foreground">{tag}</code>
+              <span className="text-xs text-muted">{desc}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
